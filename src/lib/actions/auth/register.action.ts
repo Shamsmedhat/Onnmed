@@ -3,7 +3,7 @@ import { API_HEADERS } from "@/lib/constants/headers.constant";
 import { RegisterFields, SignUpResponse } from "@/lib/types/auth";
 
 export async function registerAction(fields: RegisterFields) {
-  const response = await fetch(`${process.env.API}/api/auth/signup`, {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API}/api/auth/signup`, {
     method: "POST",
     headers: {
       ...API_HEADERS,

@@ -8,7 +8,7 @@ export async function deleteAppointmentAction(id: string) {
   const tokenCookie = cookies().get("next-auth.session-token")?.value;
   const token = await decode({ secret: process.env.NEXTAUTH_SECRET!, token: tokenCookie });
 
-  const res = await fetch(`${process.env.API}/api/appointments/${id}`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API}/api/appointments/${id}`, {
     method: "DELETE",
     headers: {
       ...API_HEADERS,

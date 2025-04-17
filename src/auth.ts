@@ -17,7 +17,7 @@ export const authOptions: NextAuthOptions = {
         recaptcha: {},
       },
       authorize: async (credentials) => {
-        const API_URL = process.env.API;
+        const API_URL = process.env.NEXT_PUBLIC_API;
         const response = await fetch(API_URL + "/api/auth/signin", {
           method: "POST",
           cache: "no-cache",
