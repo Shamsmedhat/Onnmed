@@ -20,7 +20,7 @@ This project is a full-stack web application built as part of the NNMED Practica
 - **Next.js (14.2.28)**: React framework for server-side rendering and static site generation.
 - **React (18)**: For building dynamic UI components.
 - **Tailwind CSS**: For styling and responsive design.
-- **Key Libraries** (from `package.json`):
+- **Key Libraries**:
   - `@fullcalendar/*`: For interactive calendar and appointment scheduling UI.
   - `@tanstack/react-query`: For efficient data fetching and state management.
   - `react-hook-form` & `@hookform/resolvers` with `zod`: For form handling and validation.
@@ -41,7 +41,7 @@ This project is a full-stack web application built as part of the NNMED Practica
 ### Backend Setup
 1. Clone the repository:
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/Shamsmedhat/onnmed-backend.git
    cd onnmed-backend
    ```
 2. Install dependencies:
@@ -50,34 +50,35 @@ This project is a full-stack web application built as part of the NNMED Practica
    ```
 3. Create a `.env` file in the root directory and add the following:
    ```env
-   PORT=5000
-   MONGODB_URI=<your-mongodb-connection-string>
-   JWT_SECRET=<your-jwt-secret>
+   PORT=3000
+   RECAPTCHA_SECRET_KEY=6LekYxsrAAAAAKqFiADlayNp62lwk8ATK0clQ8Qi
+   JWT_SECRET=62f211ee13a58df188dd0ff6972ff39843ed6f9991d4a352a7f9560171c59648
    ```
 4. Start the backend server:
    ```bash
-   npm start
+   nodemon
    ```
-   The API will be available at `http://localhost:5000`.
+   The API will be available at `http://localhost:3000`.
 
 ### Frontend Setup
-1. Navigate to the frontend directory:
+1. Clone the repository:
    ```bash
-   cd onnmed
+   git clone https://github.com/Shamsmedhat/onnmed.git
    ```
 2. Install dependencies:
    ```bash
-   npm install
+   yarn install
    ```
 3. Create a `.env.local` file in the root directory and add:
    ```env
-   NEXT_PUBLIC_API_URL=http://localhost:5000
-   NEXT_PUBLIC_RECAPTCHA_SITE_KEY=<your-recaptcha-site-key>
-   RECAPTCHA_SECRET_KEY=<your-recaptcha-secret-key>
+   NEXT_PUBLIC_API=https://onnmed-backend.vercel.app
+   NEXTAUTH_SECRET="f1yECmDh9IUagthENos1wwMhjZ5cf3rlubC/+gDHrNo="
+   NEXTAUTH_URL=http://localhost:3001
+   NEXT_PUBLIC_RECAPTCHA_SITE_KEY=6LekYxsrAAAAAIPJY78vZ3cw_Bmqt7PKuqrLpcZE
    ```
 4. Run the development server:
    ```bash
-   npm run dev
+   yarn dev
    ```
    The frontend will be available at `http://localhost:3000`.
 
