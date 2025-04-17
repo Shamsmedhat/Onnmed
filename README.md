@@ -4,7 +4,6 @@ This project is a full-stack web application built as part of the NNMED Practica
 
 ## Users
 
-## Tech Stack
   Admin:  `name`: "admin",
           `email`: "admin@gmail.com",
           `password`: "Admin@123",
@@ -14,6 +13,13 @@ This project is a full-stack web application built as part of the NNMED Practica
           `email`: "patient@gmail.com",
           `password`: "Patient@123",
           `userType`: "patient"
+          
+  Doctor:`name`: "doctor",
+          `email`: "Doctor@gmail.com",
+          `password`: "doctor@123", s
+          `userType`: "doctor"
+          
+## Tech Stack
 
 ### Backend
 - **Node.js**: Runtime environment for executing JavaScript server-side.
