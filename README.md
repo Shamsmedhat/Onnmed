@@ -96,5 +96,3 @@ This project is a full-stack web application built as part of the NNMED Practica
 Thank you for reviewing my submission! I enjoyed building this project and look forward to your feedback.
 
 ---
-
-Built with 💻 by [Your Name]
