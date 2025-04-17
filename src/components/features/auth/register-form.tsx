@@ -283,7 +283,6 @@ export default function RegisterForm({
               type="button"
               className="border-none bg-transparent capitalize text-custom-rose-900 underline "
               onClick={() => {
-                console.log(1111);
                 changeForm(ChangeAuthForm.LOGIN);
               }}
             >

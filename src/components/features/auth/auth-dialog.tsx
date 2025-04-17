@@ -39,7 +39,6 @@ export default function AuthDialog() {
   const [formName, setFormName] = useState<ChangeAuthForm>(ChangeAuthForm.LOGIN);
   const [open, setOpen] = useState(false);
 
-  console.log("form name", formName);
   // Functions
   function changeForm(formName: ChangeAuthForm) {
     setFormName(formName);

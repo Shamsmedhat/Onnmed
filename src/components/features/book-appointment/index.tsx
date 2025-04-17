@@ -4,11 +4,11 @@ import { BookingNewAppointment } from "./components/booking-new-appointment";
 export default async function BookAppointment() {
   // Fetch
   const [appointmentsRes, allDoctorsRes] = await Promise.all([
-    fetch(process.env.API + "/appointments", {
+    fetch(process.env.API + "/api/appointments", {
       cache: "no-store",
       next: { tags: ["appointments"] },
     }),
-    fetch(process.env.API + "/users", {
+    fetch(process.env.API + "/api/users", {
       cache: "no-store",
       next: { tags: ["doctors"] },
     }),

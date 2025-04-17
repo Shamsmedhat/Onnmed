@@ -32,7 +32,7 @@ export default function DateAndLocale() {
 
   return (
     <div className="flex justify-center items-center gap-3">
-      <div>{today}</div>
+      <div className="text-gray-700 text-sm md:text-base">{today}</div>
       <div>
         <Select
           defaultValue={locale}

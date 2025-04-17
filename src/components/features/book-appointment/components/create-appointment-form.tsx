@@ -10,7 +10,7 @@ import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
 import appointmentImage from "@../../../public/assets/images/appointment.jpg";
 import * as z from "zod";
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import useCreateAppointment from "@/hooks/use-create-appointment";
 import {
@@ -136,7 +136,7 @@ export default function AppointmentSummaryForm({
         timeSlot: values.timeSlot,
         status: values.status,
       };
-
+      console.log("new value", newValues);
       createNewAppointment({
         ...newValues,
         status: newValues.status as "pending" | "confirmed" | "cancelled" | "completed",
@@ -169,7 +169,7 @@ export default function AppointmentSummaryForm({
     form.setValue("createdBy", session.data?.id || "");
     form.setValue("status", status || "pending");
     form.setValue("appointmentDate", appointmentDate || "");
-  }, [timeSlot, doctorValue, status, appointmentDate, form]);
+  }, [timeSlot, doctorValue, session, status, appointmentDate, form]);
 
   return (
     <Form {...form}>

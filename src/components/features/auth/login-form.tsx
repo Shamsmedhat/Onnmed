@@ -82,6 +82,7 @@ export default function LoginForm({ changeForm }: LoginFormProps) {
         recaptcha: captchaToken,
         redirect: false,
       });
+
       if (response?.status === 401) {
         setError(t("wrong-email-or-password"));
         return;

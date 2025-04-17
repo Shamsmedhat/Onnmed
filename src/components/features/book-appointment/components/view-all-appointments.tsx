@@ -41,10 +41,7 @@ type ViewAllAppointmentsProps = {
   statusColor: string;
 };
 
-export default function ViewAllAppointments({
-  appointments,
-  statusColor,
-}: ViewAllAppointmentsProps) {
+export default function ViewAllAppointments({ appointments }: ViewAllAppointmentsProps) {
   // Translations
   const t = useTranslations();
 
@@ -55,7 +52,7 @@ export default function ViewAllAppointments({
   const { deleteAppointment, error, isPending } = useDeleteAppointment();
 
   // Variables
-  const events = useMemo(() => getAllEvents(appointments, session, t), [appointments, t]);
+  const events = useMemo(() => getAllEvents(appointments, session, t), [appointments, session, t]);
   const patientUser = session.data?.userType === "patient";
   const adminUser = session.data?.userType === "admin";
   const doctorUser = session.data?.userType === "doctor";
@@ -209,13 +206,15 @@ export default function ViewAllAppointments({
                 {(adminUser || doctorUser) && (
                   <div className="flex gap-3">
                     {/* Delete button */}
-                    <Button
-                      onClick={() => handleDeleteAppointment(event.id)}
-                      disabled={isPending}
-                      className="h-7 w-7 bg-red-400 hover:bg-red-400/80"
-                    >
-                      <RiDeleteBin5Line className="!size-5" />
-                    </Button>
+                    {adminUser && (
+                      <Button
+                        onClick={() => handleDeleteAppointment(event.id)}
+                        disabled={isPending}
+                        className="h-7 w-7 bg-red-400 hover:bg-red-400/80"
+                      >
+                        <RiDeleteBin5Line className="!size-5" />
+                      </Button>
+                    )}
 
                     {/* Edit button */}
                     <Dialog>

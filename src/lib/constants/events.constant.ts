@@ -7,6 +7,7 @@ export function getAllEvents(
   session: SessionContextValue,
   t: (key: string) => string
 ): EventSourceInput {
+  console.log("appoin", appointments);
   const appointmentTitle = t("appointment-link");
 
   const userRole = session.data?.userType;
