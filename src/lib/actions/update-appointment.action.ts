@@ -6,8 +6,10 @@ import { revalidateTag } from "next/cache";
 import { cookies } from "next/headers";
 
 export async function updateAppointmentAction(fields: { status: string }, id: string) {
+  const tokenCookie2 = cookies().get("next-auth.session-token")?.value;
   const tokenCookie = cookies().get("next-auth.session-token")?.value;
   const token = await decode({ secret: process.env.NEXTAUTH_SECRET!, token: tokenCookie });
+  console.log(tokenCookie2)
   console.log(tokenCookie)
   console.log({ ...fields, userType: token?.userType })
   console.log(process.env.NEXTAUTH_SECRET!)
