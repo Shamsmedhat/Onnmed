@@ -82,10 +82,6 @@ This project is a full-stack web application built as part of the NNMED Practica
    ```
    The frontend will be available at `http://localhost:3000`.
 
-### Deployment Notes
-- **Backend**: Can be deployed on platforms like Render or Heroku. Ensure the MongoDB URI and environment variables are configured in the hosting platform.
-- **Frontend**: Deploy on Vercel for optimal Next.js support. Update the API URL in `.env.local` to point to the deployed backend.
-
 ## Project Approach
 
 ### What I Did
@@ -96,26 +92,6 @@ This project is a full-stack web application built as part of the NNMED Practica
   - **Doctor**: Login with CAPTCHA, view appointments, and update appointment statuses.
   - **Admin**: Manage users (Doctors and Patients) and appointments via a dashboard.
   - **Appointment**: Time-slot-based scheduling (e.g., 1:00 PM, 2:00 PM) with conflict prevention.
-
-### What I Liked
-- Using Next.js with Tailwind CSS made the frontend development fast and enjoyable, especially for responsive design.
-- FullCalendar was a great choice for visualizing appointments, making the UI intuitive.
-- MongoDB’s flexibility allowed quick schema design for users and appointments.
-
-### Challenges Faced
-- **CAPTCHA Integration**: Configuring `react-google-recaptcha-v3` with Next.js required extra effort due to SSR compatibility issues. Resolved by using dynamic imports.
-- **Time Slot Logic**: Ensuring one appointment per time slot required careful validation on both frontend and backend to prevent race conditions.
-- **Time Constraint**: The 48-hour deadline was tight, but I prioritized core functionalities and a clean codebase.
-
-### What’s Pending
-- **Testing**: Unit tests for API endpoints and frontend components are not implemented due to time constraints.
-- **Advanced Admin Features**: Features like bulk appointment management or analytics dashboards could enhance the admin module.
-- **Localization**: The app is in English only; adding multi-language support via `next-intl` is incomplete.
-- **Deployment**: The app is not hosted yet, but deployment instructions are provided above.
-
-## Submission
-- **Repository**: [GitHub Repository Link](#) (replace with your actual public repo link).
-- **Hosted App**: Not hosted yet, but can be run locally with the provided setup instructions.
 
 Thank you for reviewing my submission! I enjoyed building this project and look forward to your feedback.
 
