@@ -1,5 +1,4 @@
 import { cn } from "@/lib/utils";
-import { useSession } from "next-auth/react";
 import React, { Dispatch } from "react";
 
 type SlotsButtonsTypes = {

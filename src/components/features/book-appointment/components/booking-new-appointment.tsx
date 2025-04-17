@@ -11,7 +11,6 @@ import dynamic from "next/dynamic";
 import CalendarSkeleton from "@/components/skeletons/full-calendar.skeleton";
 import { useSession } from "next-auth/react";
 import { Card, CardContent } from "@/components/ui/card";
-import docImage from "@/../public/assets/images/doctor.png";
 import { FcApproval } from "react-icons/fc";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { AvatarFallback } from "@radix-ui/react-avatar";
