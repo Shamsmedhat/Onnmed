@@ -8,7 +8,7 @@ This project is a full-stack web application built as part of the NNMED Practica
 - **Node.js**: Runtime environment for executing JavaScript server-side.
 - **Express.js**: Web framework for building RESTful APIs.
 - **MongoDB (with Mongoose)**: NoSQL database for storing user and appointment data.
-- **Dependencies** (from `package.json`):
+- **Dependencies**:
   - `bcrypt`: For password hashing and secure authentication.
   - `cors`: To enable Cross-Origin Resource Sharing.
   - `dotenv`: For environment variable management.
