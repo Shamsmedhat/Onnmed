@@ -21,6 +21,7 @@ This project is a full-stack web application built as part of the NNMED Practica
 - **React (18)**: For building dynamic UI components.
 - **Tailwind CSS**: For styling and responsive design.
 - **Key Libraries**:
+  - `next-intl`: For internationalization and multi-language support.
   - `@fullcalendar/*`: For interactive calendar and appointment scheduling UI.
   - `@tanstack/react-query`: For efficient data fetching and state management.
   - `react-hook-form` & `@hookform/resolvers` with `zod`: For form handling and validation.
