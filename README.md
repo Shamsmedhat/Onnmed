@@ -29,7 +29,7 @@ This project is a full-stack web application built as part of the NNMED Practica
   - `next-auth`: For authentication integration.
   - `lucide-react` & `react-icons`: For icons to enhance UI.
   - `sonner`: For toast notifications.
-  - `@radix-ui/*`: For accessible and customizable UI components.
+  - `@shadcn-ui/*`: For accessible and customizable UI components.
   - `date-fns`: For date manipulation and formatting.
 
 ## Project Setup Procedure
