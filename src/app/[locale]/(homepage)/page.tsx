@@ -2,6 +2,7 @@ import Image from "next/image";
 import mainBg from "@/../public/assets/images/main.jpg";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
+import { cookies } from "next/headers";
 
 export default function Page() {
   const t = useTranslations();
