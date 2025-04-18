@@ -15,7 +15,6 @@ import { Button } from "@/components/ui/button";
 import { RiDeleteBin5Line } from "react-icons/ri";
 import { CiEdit } from "react-icons/ci";
 import useDeleteAppointment from "@/hooks/use-delete-appointment";
-import { toast } from "sonner";
 import {
   Dialog,
   DialogContent,
@@ -26,7 +25,7 @@ import {
 } from "@/components/ui/dialog";
 import { getAllEvents } from "@/lib/constants/events.constant";
 import dynamic from "next/dynamic";
-import { useMemo } from "react";
+import { useMemo, useTransition } from "react";
 import { useSession } from "next-auth/react";
 import { cn } from "@/lib/utils";
 import UpdateAppointmentSkeleton from "@/components/skeletons/update-appointment.skeleton";
@@ -49,7 +48,8 @@ export default function ViewAllAppointments({ appointments }: ViewAllAppointment
   const session = useSession();
 
   // Hooks
-  const { deleteAppointment, error, isPending } = useDeleteAppointment();
+  const { deleteAppointment, isPending } = useDeleteAppointment();
+  const [isTransitionPending, startTransition] = useTransition();
 
   // Variables
   const events = useMemo(() => getAllEvents(appointments, session, t), [appointments, session, t]);
@@ -61,13 +61,8 @@ export default function ViewAllAppointments({ appointments }: ViewAllAppointment
   // (map appointments to event format)
   const handleDeleteAppointment = (id: string) => {
     if (patientUser) return;
-    deleteAppointment(id, {
-      onSuccess: () => {
-        toast.success(t("appointment-deleted-successfully"));
-      },
-      onError: () => {
-        toast.error(error?.message);
-      },
+    startTransition(() => {
+      deleteAppointment(id);
     });
   };
 
@@ -151,7 +146,7 @@ export default function ViewAllAppointments({ appointments }: ViewAllAppointment
                     {/* Delete button */}
                     <Button
                       onClick={() => handleDeleteAppointment(event.id)}
-                      disabled={isPending}
+                      disabled={isPending || isTransitionPending}
                       className="w-fit h-auto bg-transparent hover:bg-transparent border-0 shadow-none focus:ring-0 focus:outline-none px-0 py-0"
                     >
                       <span className="text-red-600 capitalize underline">{t("delete")}</span>
@@ -209,7 +204,7 @@ export default function ViewAllAppointments({ appointments }: ViewAllAppointment
                     {adminUser && (
                       <Button
                         onClick={() => handleDeleteAppointment(event.id)}
-                        disabled={isPending}
+                        disabled={isPending || isTransitionPending}
                         className="h-7 w-7 bg-red-400 hover:bg-red-400/80"
                       >
                         <RiDeleteBin5Line className="!size-5" />

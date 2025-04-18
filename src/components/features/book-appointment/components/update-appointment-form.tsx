@@ -24,8 +24,7 @@ import { z } from "zod";
 import { EventImpl } from "@fullcalendar/core/internal";
 import { allStatusOptions } from "@/lib/constants/appointment-status.constant";
 import useUpdateAppointment from "@/hooks/use-update-appointment";
-import React from "react";
-import { toast } from "sonner";
+import React, { useTransition } from "react";
 import { DialogClose } from "@/components/ui/dialog";
 import { useSession } from "next-auth/react";
 
@@ -53,6 +52,9 @@ export default function UpdateAppointmentForm({
 
   // Session
   const session = useSession();
+
+  // Hooks
+  const [isTransitionPending, startTransition] = useTransition();
 
   // Mutation
   const { error, isPending, updateAppointment } = useUpdateAppointment();
@@ -96,15 +98,8 @@ export default function UpdateAppointmentForm({
 
     if (appointment?.status === values.status) return;
 
-    updateAppointment(updatedValues, {
-      onSuccess() {
-        // Close the dialog after update
-        toast.success(`${t("appointment-updated-successfully")} ✅`);
-      },
-
-      onError: (error) => {
-        toast.error(error.message);
-      },
+    startTransition(() => {
+      updateAppointment(updatedValues);
     });
   }
 
@@ -281,6 +276,7 @@ export default function UpdateAppointmentForm({
               className="w-full mt-4 bg-main-gold-500  hover:bg-main-gold-500/80 rounded-md"
               disabled={
                 isPending ||
+                isTransitionPending ||
                 (!form.formState.isValid && form.formState.isSubmitted) ||
                 appointment?.status === form.getValues("status")
               }

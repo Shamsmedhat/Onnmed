@@ -13,8 +13,6 @@ export default async function BookAppointment() {
     }),
   ]);
 
-  console.log(appointmentsRes);
-
   // Data
   const appointmentsPayload = await appointmentsRes.json();
   const usersPayload = await allDoctorsRes.json();

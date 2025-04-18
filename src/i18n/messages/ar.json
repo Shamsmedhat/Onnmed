@@ -105,5 +105,8 @@
   "wrong-email-or-password": "بريد إلكتروني أو كلمة مرور خاطئ.",
   "main-des": "خبراء في البحوث السريرية والنشر الطبي في الإمارات العربية المتحدة <br></br> ، والبحث في سد ، والابتكار ، والرعاية المتمحورة حول المريض.",
   "welcome-to-onnmed": "مرحبا بكم في onnmed",
-  "book-an-appointment-now": "حجز موعد الآن"
+  "book-an-appointment-now": "حجز موعد الآن",
+  "to": "ل",
+  "delete-appointment-failed-0": "فشل حذف الموعد",
+  "deleting": "جاري الحذف..."
 }

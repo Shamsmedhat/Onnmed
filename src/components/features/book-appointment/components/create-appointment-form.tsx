@@ -136,14 +136,24 @@ export default function AppointmentSummaryForm({
         timeSlot: values.timeSlot,
         status: values.status,
       };
-      console.log("new value", newValues);
-      createNewAppointment({
-        ...newValues,
-        status: newValues.status as "pending" | "confirmed" | "cancelled" | "completed",
-      });
+      createNewAppointment(
+        {
+          ...newValues,
+          status: newValues.status as "pending" | "confirmed" | "cancelled" | "completed",
+        },
+        {
+          onSuccess: () => {
+            toast.success(t("appointment-created-successfully"));
+          },
+          onError: (error) => {
+            toast.error(error.message);
+          },
+        }
+      );
       setTime("");
     }
   };
+
   // Variables
   // Watch the fields you care about
   const appointmentDateValue = form.watch("appointmentDate");

@@ -107,5 +107,8 @@
   "submiting": "submiting...",
   "main-des": "Experts in clinical research and medical publishing in the UAE, <br></br> bridging research, innovation, and patient-centric care.",
   "welcome-to-onnmed": "Welcome to Onnmed",
-  "book-an-appointment-now": "book an appointment now"
+  "book-an-appointment-now": "book an appointment now",
+  "to": "to",
+  "delete-appointment-failed-0": "Delete appointment failed",
+  "deleting": "Deleting..."
 }
