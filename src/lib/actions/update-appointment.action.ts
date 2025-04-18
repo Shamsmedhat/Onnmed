@@ -6,7 +6,7 @@ import { revalidateTag } from "next/cache";
 import { cookies } from "next/headers";
 
 export async function updateAppointmentAction(fields: { status: string }, id: string) {
-  const tokenCookie = cookies().get("next-auth.session-token")?.value;
+  const tokenCookie = cookies().get("__Secure-next-auth.session-token")?.value;
   const token = await decode({ secret: process.env.NEXTAUTH_SECRET!, token: tokenCookie });
 
   const res = await fetch(`${process.env.NEXT_PUBLIC_API}/api/appointments/${id}`, {

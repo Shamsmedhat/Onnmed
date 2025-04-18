@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function Page() {
   const t = useTranslations();
-
+  
   return (
     <section className="container w-full">
       <div className="absolute inset-0 ">
